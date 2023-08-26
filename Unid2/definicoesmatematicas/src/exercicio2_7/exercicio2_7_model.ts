@@ -25,8 +25,11 @@ class veiculoEletrico extends veiculo {
 
 class veiculoEletricoVoador extends veiculoEletrico {
     altitude: number;
-    constructor(longitude: number, latitude: number, bateria: number, altitude: number) {
+    constructor(longitude: number, latitude: number, altitude: number, bateria: number) {
         super(longitude, latitude, bateria);
+        this.altitude = altitude;
+    }
+    moverAltitude(altitude: number){
         this.altitude = altitude;
     }
 }
