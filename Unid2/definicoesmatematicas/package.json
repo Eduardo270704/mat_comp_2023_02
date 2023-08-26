@@ -4,13 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "um": "npx ts-node ./src/exercicio2_1.ts"
+    "26a": "npx ts-node ./src/exercicio2_6/exercicio2_6_a",
+    "26b": "npx ts-node ./src/exercicio2_6/exercicio2_6_b",
+    "26c": "npx ts-node ./src/exercicio2_6/exercicio2_6_c",
+    "26d": "npx ts-node ./src/exercicio2_6/exercicio2_6_d"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/prompt-sync": "^4.2.0",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
   }
 }
