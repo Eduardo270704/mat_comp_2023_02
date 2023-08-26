@@ -7,7 +7,8 @@
     "26a": "npx ts-node ./src/exercicio2_6/exercicio2_6_a",
     "26b": "npx ts-node ./src/exercicio2_6/exercicio2_6_b",
     "26c": "npx ts-node ./src/exercicio2_6/exercicio2_6_c",
-    "26d": "npx ts-node ./src/exercicio2_6/exercicio2_6_d"
+    "26d": "npx ts-node ./src/exercicio2_6/exercicio2_6_d",
+    "27": "npx ts-node ./src/exercicio2_7/exercicio2_7"
   },
   "keywords": [],
   "author": "",
