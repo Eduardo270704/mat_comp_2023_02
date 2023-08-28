@@ -8,7 +8,11 @@
     "26b": "npx ts-node ./src/exercicio2_6/exercicio2_6_b",
     "26c": "npx ts-node ./src/exercicio2_6/exercicio2_6_c",
     "26d": "npx ts-node ./src/exercicio2_6/exercicio2_6_d",
-    "27": "npx ts-node ./src/exercicio2_7/exercicio2_7"
+    "27": "npx ts-node ./src/exercicio2_7/exercicio2_7",
+    "28a": "npx ts-node ./src/exercicio2_8/iterative_sequence",
+    "28b": "npx ts-node ./src/exercicio2_8/recursive_sequence",
+    "29": "npx ts-node ./src/exercicio2_9",
+    "210": "npx ts-node ./src/exercicio2_10"
   },
   "keywords": [],
   "author": "",

@@ -2,7 +2,7 @@ import promptSync from "prompt-sync";
 import { veiculo, veiculoEletrico, veiculoEletricoVoador } from "./exercicio2_7_model";
 const prompt = promptSync();
 
-console.log("Criando um veículo...");
+console.log("Criando um  veículo...");
 const longitudeveiculo = parseFloat(prompt("Digite a longitude: "));
 const latitudeveiculo = parseFloat(prompt("Digite a latitude: "));
 const meuveiculo = new veiculo(longitudeveiculo, latitudeveiculo);
@@ -11,7 +11,7 @@ console.log("\nMovendo o veículo...");
 const novaLongitude = parseFloat(prompt("Digite a nova longitude: "));
 const novaLatitude = parseFloat(prompt("Digite a nova latitude: "));
 meuveiculo.moverPara(novaLongitude, novaLatitude);
-console.log("Coordenadas do veículo elétrico após movimentação:", meuveiculo.longitude, meuveiculo.latitude);
+console.log("Coordenadas do veículo após movimentação:", meuveiculo.longitude, meuveiculo.latitude);
 
 console.log("Criando um veículo elétrico...");
 const longitudeEletrico = parseFloat(prompt("Digite a longitude: "));
