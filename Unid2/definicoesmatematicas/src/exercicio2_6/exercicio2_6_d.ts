@@ -3,7 +3,7 @@ class Aluno {
     constructor(estado: string) {
         this.estado = estado;
     }
-    estudar() {
+    estudar_lesm() {
         console.log("O aluno ainda está cursando a faculdade.");
     }
 }
@@ -14,7 +14,7 @@ class cursando extends Aluno {
         super(estado);
         this.caracteristica = caracteristica;
     }
-    horario() {
+    horario_lesm() {
         console.log("O aluno estuda no horário da noite.");
     }
 }
@@ -25,15 +25,15 @@ class fisico extends cursando {
         super(estado, caracteristica);
         this.boasnotas = boasnotas;
     }
-    notas() {
+    notas_lesm() {
         console.log("O aluno tem boas notas.");
     }
 }
 
 const seraluno = new fisico("Einstein", "Noite", true);
 console.log(`Aluno ${seraluno.estado}`);
-seraluno.estudar()
+seraluno.estudar_lesm()
 console.log(`Horário: ${seraluno.caracteristica}`);
-seraluno.horario();
+seraluno.horario_lesm();
 console.log(`Passou de semestre? ${seraluno.boasnotas}`);
-seraluno.notas();
+seraluno.notas_lesm();

@@ -16,13 +16,13 @@ enum mesesAno {
     dez = "Dezembro"
 };
 
-function obterNomeCompleto(mes: mesesAno): string {
+function obterNomeCompleto_lesm(mes: mesesAno): string {
     return mes;
 }
 
 const abreviacao = prompt("Digite a abreviação do mês: ").toLowerCase();
 const mesTeste: mesesAno = mesesAno[abreviacao as keyof typeof mesesAno];
-const nomeCompleto = obterNomeCompleto(mesTeste);
+const nomeCompleto = obterNomeCompleto_lesm(mesTeste);
 
 if (mesTeste) {
     console.log(`Abreviação: ${abreviacao}`);

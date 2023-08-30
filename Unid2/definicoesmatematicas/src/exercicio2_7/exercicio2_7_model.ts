@@ -5,7 +5,7 @@ class veiculo {
         this.longitude = longitude;
         this.latitude = latitude;
     }
-    moverPara(longitude: number, latitude: number): void {
+    moverPara_lesm(longitude: number, latitude: number): void {
         this.longitude = longitude;
         this.latitude = latitude;
     }
@@ -17,7 +17,7 @@ class veiculoEletrico extends veiculo {
         super(longitude, latitude);
         this.bateria = bateria;
     }
-    carregar(carga: number): void {
+    carregar_lesm(carga: number): void {
         this.bateria += carga;
     }
 }

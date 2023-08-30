@@ -1,7 +1,7 @@
 class Fibonacci {
     private memo: number[] = [];
 
-    calcularTermo(posicao: number): number {
+    calcularTermo_lesm(posicao: number): number {
         if (posicao <= 0) { 
             throw new Error("A posição deve ser um número positivo.");
         }
@@ -15,7 +15,7 @@ class Fibonacci {
             return 1;
         }
 
-        const termo = this.calcularTermo(posicao - 1) + this.calcularTermo(posicao - 2);
+        const termo = this.calcularTermo_lesm(posicao - 1) + this.calcularTermo_lesm(posicao - 2);
         this.memo[posicao] = termo;
 
         return termo;
@@ -24,6 +24,6 @@ class Fibonacci {
 
 const fibonacci = new Fibonacci();
 
-console.log("Termo da posição 6:", fibonacci.calcularTermo(6));
-console.log("Termo da posição 8:", fibonacci.calcularTermo(8));
-console.log("Termo da posição 10:", fibonacci.calcularTermo(10));
+console.log("Termo da posição 6:", fibonacci.calcularTermo_lesm(6));
+console.log("Termo da posição 8:", fibonacci.calcularTermo_lesm(8));
+console.log("Termo da posição 10:", fibonacci.calcularTermo_lesm(10));

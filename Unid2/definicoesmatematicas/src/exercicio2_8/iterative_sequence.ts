@@ -1,4 +1,4 @@
-function sequence(n: number): number {
+function sequence_lesm(n: number): number {
     let term: number = 1;
     let limit: number = 2;
     while (limit <= n) {
@@ -8,6 +8,6 @@ function sequence(n: number): number {
     return term;
 }
 
-console.log(sequence(100000));
+console.log(sequence_lesm(100000));
 
 export { }

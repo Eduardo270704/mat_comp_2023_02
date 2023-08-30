@@ -11,13 +11,13 @@ enum diaSemana {
     sab = "Sábado"
 };
 
-function obterNomeCompleto(dia: diaSemana): string {
+function obterNomeCompleto_lesm(dia: diaSemana): string {
     return dia;
 }
 
 const abreviacao = prompt("Digite a abreviação do dia da semana: ").toLowerCase();
 const diaTeste: diaSemana = diaSemana[abreviacao as keyof typeof diaSemana];
-const nomeCompleto = obterNomeCompleto(diaTeste);
+const nomeCompleto = obterNomeCompleto_lesm(diaTeste);
 
 if (diaTeste) {
     console.log(`Abreviação: ${abreviacao}`);

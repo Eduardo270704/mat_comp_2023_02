@@ -5,7 +5,7 @@ class ProgressaoGeometrica {
         this.primeiroTermo = primeiroTermo;
         this.razao = razao;
     }
-    gerarTermos(quantidade: number): number[] {
+    gerarTermos_lesm(quantidade: number): number[] {
         const termos: number[] = [this.primeiroTermo];
         for (let i = 1; i < quantidade; i++) {
             const proximoTermo = termos[i - 1] * this.razao;
@@ -19,7 +19,7 @@ class ProgressaoGeometrica {
 const progressao = new ProgressaoGeometrica(2, 3);
 
 // Gerando os primeiros 50 termos da progressão
-const primeiro50Termos = progressao.gerarTermos(50);
+const primeiro50Termos = progressao.gerarTermos_lesm(50);
 
 // Exibindo os primeiros 50 termos
 primeiro50Termos.forEach((termo, index)=>{
