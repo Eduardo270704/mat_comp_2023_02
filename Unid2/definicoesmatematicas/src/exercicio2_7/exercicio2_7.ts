@@ -45,7 +45,7 @@ const novaLatitudeVoador = parseFloat(prompt("Digite a nova latitude: "));
 const novaAltitudeVoador = parseFloat(prompt("Digite a nova altitude: "));
 meuveiculoEletricoVoador.moverPara_lesm(novaLongitudeVoador, novaLatitudeVoador);
 console.log("\nAlterando altura de vôo...")
-meuveiculoEletricoVoador.moverAltitude(novaAltitudeVoador)  
+meuveiculoEletricoVoador.moverAltitude_lesm(novaAltitudeVoador)  
 console.log("Coordenadas do veículo elétrico voador após movimentação:", meuveiculoEletricoVoador.longitude, meuveiculoEletricoVoador.latitude, meuveiculoEletricoVoador.altitude);
 console.log("\nVerificando a carga da bateria do veículo elétrico voador...");
 console.log("Bateria do veículo elétrico voador:", meuveiculoEletricoVoador.bateria);

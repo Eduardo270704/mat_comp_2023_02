@@ -28,7 +28,7 @@ class veiculoEletricoVoador extends veiculoEletrico {
         super(longitude, latitude, bateria);
         this.altitude = altitude;
     }
-    moverAltitude(altitude: number) {
+    moverAltitude_lesm(altitude: number) {
         this.altitude = altitude;
     }
 }
