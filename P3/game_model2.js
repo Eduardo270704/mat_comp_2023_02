@@ -8,33 +8,32 @@ var platformY;
 var objectRadius;
 var objectX;
 var objectY;
-var objectSpeed;
+var objectSpeedX;
+var objectSpeedY;
 var score;
 var gameRunning;
 var movementDirection;
 var movementSpeed;
 var objectsBarraged;
-var scoreDisplay;
 
 document.addEventListener("DOMContentLoaded", function () {
   game_screen = document.getElementById("game_screen");
   game_context = game_screen.getContext("2d");
-  platformWidth = 100;
-  platformHeight = 5;
-  platformX = (game_screen.width - platformWidth) / 2;
-  platformY = game_screen.height - platformHeight - 10;
+  platformWidth = 5;
+  platformHeight = 50;
+  platformX = game_screen.width - platformWidth - 10;
+  platformY = (game_screen.height - platformHeight) / 2;
   objectRadius = 10;
-  objectX =
-    Math.random() * (game_screen.width - objectRadius * 2) + objectRadius;
-  objectY = 0;
-  objectSpeed = 1;
+  objectX = 0;
+  objectY =
+    Math.random() * (game_screen.height - objectRadius * 2) + objectRadius;
+  objectSpeedX = 1;
+  objectSpeedY = 0;
   score = 0;
   gameRunning = false;
   movementDirection = 0;
   movementSpeed = 2;
   objectsBarraged = 0;
-
-  scoreDisplay = document.getElementById("score_display");
 
   const start_button = document.getElementById("start_button");
   start_button.onclick = startGame;
@@ -61,19 +60,21 @@ function updateGameArea() {
   game_context.clearRect(0, 0, game_screen.width, game_screen.height);
 
   if (gameRunning) {
-    objectY += objectSpeed;
+    objectX += objectSpeedX;
+    objectY += objectSpeedY;
 
     if (
-      objectY + objectRadius > platformY &&
-      objectX > platformX &&
-      objectX < platformX + platformWidth
+      objectX + objectRadius > platformX &&
+      objectY > platformY &&
+      objectY < platformY + platformHeight
     ) {
       score += 10;
-      objectY = 0;
-      objectX =
-        Math.random() * (game_screen.width - objectRadius * 2) + objectRadius;
+      objectX = 0;
+      objectY =
+        Math.random() * (game_screen.height - objectRadius * 2) + objectRadius;
 
-      objectSpeed += 0.1;
+      objectSpeedX += 0.1;
+      objectSpeedY = 0;
 
       objectsBarraged++;
 
@@ -81,36 +82,37 @@ function updateGameArea() {
         movementSpeed += 0.8;
         objectsBarraged = 0;
       }
-    } else if (objectY + objectRadius > game_screen.height) {
+    } else if (objectX + objectRadius > game_screen.width) {
       endGame();
     }
 
-    platformX += movementDirection * movementSpeed;
-
-    if (platformX < 0) {
-      platformX = 0;
-    } else if (platformX + platformWidth > game_screen.width) {
-      platformX = game_screen.width - platformWidth;
-    }
+    platformY += movementDirection * movementSpeed;
+    platformY = Math.max(0, Math.min(game_screen.height - platformHeight, platformY));
 
     drawObject();
     drawPlatform();
-
-    scoreDisplay.textContent = "Score: " + score;
+    updateScoreDisplay();
 
     requestAnimationFrame(updateGameArea);
   }
 }
 
+function updateScoreDisplay() {
+  document.getElementById("score_display").textContent = "Score: " + score;
+}
+
 function startGame() {
   gameRunning = true;
   score = 0;
-  objectY = 0;
-  objectSpeed = 1;
-  movementSpeed = 2;
+  objectX = 0;
+  objectY =
+    Math.random() * (game_screen.height - objectRadius * 2) + objectRadius;
+
+  objectSpeedX = 1;
+  objectSpeedY = 0;
+
   objectsBarraged = 0;
-  objectX =
-    Math.random() * (game_screen.width - objectRadius * 2) + objectRadius;
+
   updateGameArea();
 }
 
@@ -121,22 +123,17 @@ function endGame() {
 
 document.addEventListener("keydown", function (event) {
   var name = event.key.toLowerCase();
-  if (name == "arrowright" || name == "d") {
-    movementDirection = 1;
-  }
-  if (name == "arrowleft" || name == "a") {
+  if (name == "arrowup" || name == "w") {
     movementDirection = -1;
+  }
+  if (name == "arrowdown" || name == "s") {
+    movementDirection = 1;
   }
 });
 
 document.addEventListener("keyup", function (event) {
   var name = event.key.toLowerCase();
-  if (
-    name == "arrowright" ||
-    name == "a" ||
-    name == "arrowleft" ||
-    name == "d"
-  ) {
+  if (name == "arrowup" || name == "w" || name == "arrowdown" || name == "s") {
     movementDirection = 0;
   }
 });
