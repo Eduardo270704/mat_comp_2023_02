@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
   objectSpeed = 1;
   score = 0;
   gameRunning = false;
-  movementDirection = 0; // Inicialmente parado
+  movementDirection = 0;
   movementSpeed = 2;
   objectsBarraged = 0;
 
@@ -60,49 +60,39 @@ function updateGameArea() {
   if (gameRunning) {
     objectY += objectSpeed;
 
-    // Verifica se o objeto colidiu com a plataforma
     if (
       objectY + objectRadius > platformY &&
       objectX > platformX &&
       objectX < platformX + platformWidth
     ) {
-      // Objeto interceptado pela plataforma
       score += 10;
       objectY = 0;
       objectX =
         Math.random() * (game_screen.width - objectRadius * 2) + objectRadius;
 
-      // Aumenta a velocidade do objeto
-      objectSpeed += 0.1; // ou qualquer valor que você considere apropriado
+      objectSpeed += 0.1;
 
-      // Incrementa a contagem de objetos barrados
       objectsBarraged++;
 
-      // Após 4 objetos barrados, aumenta a velocidade da barra
       if (objectsBarraged >= 4) {
-        movementSpeed += 0.8; // ou qualquer valor que você considere apropriado
-        objectsBarraged = 0; // reinicia a contagem
+        movementSpeed += 0.8;
+        objectsBarraged = 0;
       }
     } else if (objectY + objectRadius > game_screen.height) {
-      // Objeto atingiu o fundo sem ser interceptado pela plataforma
       endGame();
     }
 
-    // Lógica de movimento suave da barra
     platformX += movementDirection * movementSpeed;
 
-    // Impede que a barra saia dos limites da tela
     if (platformX < 0) {
       platformX = 0;
     } else if (platformX + platformWidth > game_screen.width) {
       platformX = game_screen.width - platformWidth;
     }
 
-    // Desenha o objeto e a plataforma
     drawObject();
     drawPlatform();
 
-    // Solicita a próxima atualização do frame
     requestAnimationFrame(updateGameArea);
   }
 }
@@ -111,13 +101,8 @@ function startGame() {
   gameRunning = true;
   score = 0;
   objectY = 0;
-
-  // Reinicia a velocidade do objeto para o valor inicial
   objectSpeed = 1;
-
-  // Reinicia a contagem de objetos barrados
   objectsBarraged = 0;
-
   objectX =
     Math.random() * (game_screen.width - objectRadius * 2) + objectRadius;
   updateGameArea();
@@ -129,7 +114,7 @@ function endGame() {
 }
 
 document.addEventListener("keydown", function (event) {
-  var name = event.key.toLowerCase(); // Converte a tecla para minúsculo
+  var name = event.key.toLowerCase();
   if (name == "arrowright" || name == "d") {
     movementDirection = 1;
   }
@@ -139,7 +124,7 @@ document.addEventListener("keydown", function (event) {
 });
 
 document.addEventListener("keyup", function (event) {
-  var name = event.key.toLowerCase(); // Converte a tecla para minúsculo
+  var name = event.key.toLowerCase();
   if (
     name == "arrowright" ||
     name == "a" ||
