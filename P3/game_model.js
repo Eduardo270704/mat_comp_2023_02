@@ -91,6 +91,13 @@ function updateGameArea() {
     // Lógica de movimento suave da barra
     platformX += movementDirection * movementSpeed;
 
+    // Impede que a barra saia dos limites da tela
+    if (platformX < 0) {
+      platformX = 0;
+    } else if (platformX + platformWidth > game_screen.width) {
+      platformX = game_screen.width - platformWidth;
+    }
+
     // Desenha o objeto e a plataforma
     drawObject();
     drawPlatform();
